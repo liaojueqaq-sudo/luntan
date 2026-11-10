@@ -1,0 +1,1180 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>夜航船 · 灵异怪谈 · 江北区专版</title>
+<style>
+:root{
+  --paper:#141110;--paper2:#1a1512;--card:#171310;
+  --ink:#c6b9aa;--ink2:#9b8f80;--ink3:#6f6459;
+  --red:#b8382b;--brown:#6b5344;--line:#332823;
+  --serif:"Noto Serif SC","Noto Serif CJK SC","Songti SC",STSong,"SimSun",serif;
+  --kai:"Kaiti SC","KaiTi",STKaiti,var(--serif);
+  --mono:"SF Mono",Menlo,Consolas,"Courier New",monospace;
+}
+*{box-sizing:border-box}
+body{margin:0;background:#0d0b0a;color:var(--ink);font-family:var(--serif);font-size:15px;line-height:1.85}
+body::after{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:900;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)' opacity='0.55'/%3E%3C/svg%3E");
+  opacity:.035;mix-blend-mode:screen;
+}
+a{color:#bf5b4b;text-decoration:none}
+a:hover{color:var(--red);text-decoration:underline}
+.wrap{max-width:1000px;margin:0 auto;padding:0 16px}
+
+/* 顶栏 */
+.topbar{background:linear-gradient(#1e1210,#341512);border-bottom:2px solid #4a1512;color:#c4b4a4}
+.tbi{display:flex;align-items:center;gap:14px;height:56px}
+.logo{font-size:22px;letter-spacing:.35em;color:#d8503f;font-weight:600;text-indent:.35em}
+.logo:hover{color:#fff;text-decoration:none}
+.lsub{font-family:var(--mono);font-size:10.5px;color:#85705f;letter-spacing:.08em;margin-top:6px}
+.tnav{margin-left:auto;font-size:13px;color:#a2948a;display:flex;gap:16px;letter-spacing:.08em}
+.tnav .off{color:#5f574e;cursor:default}
+.navbar{background:var(--paper2);border-bottom:1px solid var(--line);font-size:13px;color:var(--ink2)}
+.nbi{display:flex;align-items:center;gap:8px;height:38px}
+.nbi i{font-style:normal;color:var(--ink3);margin:0 2px}
+.nbi b{color:var(--ink);font-weight:600}
+.nstat{margin-left:auto;font-family:var(--mono);font-size:11px;color:var(--ink3)}
+.main{padding:22px 16px 60px}
+
+/* 公告 / 版规 */
+.notice{border:1px solid #4c2a20;background:#1d1410;padding:10px 14px;font-size:13px;color:#b39a80;display:flex;gap:10px;align-items:baseline;margin-bottom:18px}
+.notice b{color:var(--red);font-weight:600;letter-spacing:.1em;flex:none}
+.rules{border:1px solid var(--line);background:var(--card);padding:14px 18px;font-size:13px;color:var(--ink2);margin:16px 0 22px;line-height:2}
+.rules h4{margin:0 0 6px;font-size:13px;color:var(--ink);letter-spacing:.14em;font-weight:600}
+.rules span{color:var(--ink3);margin-right:8px;font-family:var(--mono);font-size:11px}
+
+/* 列表 */
+.sec-title{display:flex;align-items:baseline;gap:12px;margin:0 0 12px;font-size:19px;font-weight:600;letter-spacing:.08em}
+.sec-title small{font-size:12px;color:var(--ink3);font-weight:400;font-family:var(--mono)}
+.tbl{width:100%;border-collapse:collapse;background:var(--card);border:1px solid var(--line);font-size:14px}
+.tbl th{background:var(--paper2);border-bottom:1px solid var(--line);padding:9px 12px;font-weight:400;font-size:12px;color:var(--ink2);text-align:left;letter-spacing:.08em}
+.tbl td{border-bottom:1px dashed #2a211c;padding:13px 12px;vertical-align:middle}
+.tbl tr:last-child td{border-bottom:none}
+.tbl tbody tr:hover td{background:#1e1813}
+.dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:#4a3f36}
+.dot.hot{background:var(--red)}
+.tt{font-size:15px;color:var(--ink);letter-spacing:.02em}
+.tg{font-size:12px;color:var(--ink3);margin-top:4px;line-height:1.6}
+.col-a{width:106px;color:var(--ink2);font-size:13px}
+.col-n{width:96px;font-family:var(--mono);font-size:11.5px;color:var(--ink3);white-space:nowrap}
+.col-l{width:150px;font-size:12px;color:var(--ink3);line-height:1.6}
+.col-l b{font-weight:400;color:var(--ink2)}
+.col-i{width:34px;text-align:center}
+.online{margin-top:20px;border:1px solid var(--line);background:var(--card);padding:11px 14px;font-size:12px;color:var(--ink3);font-family:var(--mono);line-height:1.9}
+.online b{font-weight:400;color:var(--ink2);font-family:var(--serif);letter-spacing:.05em}
+
+/* 帖子 */
+.crumb{font-size:12.5px;color:var(--ink3);margin-bottom:14px;display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.crumb a{color:var(--ink3)}
+.backbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
+.backlink{font-size:12.5px;color:var(--ink2);border:1px solid var(--line);background:var(--card);padding:4px 12px;letter-spacing:.06em}
+.backlink:hover{color:var(--red);border-color:#6b2a22;text-decoration:none}
+h1.th-title{font-size:21px;margin:0 0 4px;letter-spacing:.04em;font-weight:600;line-height:1.5}
+.th-sub{font-size:12px;color:var(--ink3);font-family:var(--mono);margin-bottom:18px}
+.post{display:grid;grid-template-columns:172px 1fr;border:1px solid var(--line);background:var(--card);margin-bottom:14px}
+.post.me{border-color:#6b2a22;box-shadow:inset 3px 0 0 var(--red)}
+.pu{background:#14100e;border-right:1px solid var(--line);padding:16px 14px;text-align:center;font-size:12px;color:var(--ink3)}
+.av{width:66px;height:66px;margin:0 auto 10px;position:relative;overflow:hidden;border:1px solid #3a2f28;background:#28323a}
+.av::before{content:"";position:absolute;left:50%;top:60%;width:38px;height:38px;margin:-19px 0 0 -19px;border-radius:50% 50% 46% 46%;background:rgba(255,255,255,.20);filter:blur(2px)}
+.av::after{content:"";position:absolute;left:50%;top:32%;width:22px;height:22px;margin:-11px 0 0 -11px;border-radius:50%;background:rgba(255,255,255,.28);filter:blur(2px)}
+.av.g2{background:#2c2c26}.av.g3{background:#232a22}.av.g4{background:#2a2222}.av.g5{background:#242428}
+.un{font-size:14px;color:var(--ink);letter-spacing:.06em;font-weight:600}
+.rk{font-size:11px;color:var(--ink3);margin:2px 0 10px}
+.ps{line-height:1.9;font-size:11px;font-family:var(--mono)}
+.ps span{display:block}
+.ps .last{color:#7a6b58}
+.pc{padding:14px 22px 20px;min-width:0}
+.phd{display:flex;font-size:11.5px;color:var(--ink3);font-family:var(--mono);border-bottom:1px solid #2a211c;padding-bottom:9px;margin-bottom:14px}
+.phd .fl{margin-left:auto;color:#7d7060}
+.pb{font-size:15.5px;line-height:2.05;color:#c3b6a7}
+.pb p{margin:0 0 15px}
+.pb p:last-child{margin-bottom:0}
+.pb .dim{color:var(--ink3);font-size:13px}
+.sig{margin-top:18px;padding-top:10px;border-top:1px dashed #2a211c;font-family:var(--kai);font-size:13px;color:#857a6c}
+.ghost{color:#171310;user-select:text}
+.ghost::selection{background:var(--red);color:#fff}
+.hl{color:var(--red)}
+.fig{margin:18px 0 6px;max-width:400px}
+.fig-in{border:1px solid #3a2d26;background:#111;line-height:0}
+.fig-in svg{width:100%;height:auto;display:block;filter:contrast(1.08) brightness(.95)}
+.fig figcaption{font-size:11px;color:var(--ink3);font-family:var(--mono);margin-top:6px}
+.tailnav{display:flex;justify-content:center;gap:12px;margin:30px 0 10px}
+.tailnav a{border:1px solid var(--line);background:var(--card);padding:8px 22px;font-size:13px;color:var(--ink2);letter-spacing:.1em}
+.tailnav a:hover{color:var(--red);border-color:#6b2a22;text-decoration:none}
+
+.footer{border-top:1px solid var(--line);margin-top:40px;padding:18px 0 40px;font-size:11.5px;color:#7a7367;font-family:var(--mono);line-height:2}
+
+/* ================= 线索板 ================= */
+.board-page{background:#1b1815;margin:0 -16px;padding:22px 16px 70px;color:#c8bda8;min-height:100vh}
+.bp-head{max-width:1180px;margin:0 auto 16px;display:flex;align-items:center;gap:14px}
+.bp-head .bk{font-family:var(--mono);font-size:11px;color:#8a7d68;letter-spacing:.1em;border:1px solid #4a4034;padding:4px 12px}
+.bp-head .bk:hover{color:#d9cbb0;border-color:#7d6c56;text-decoration:none}
+.bp-head .ti{font-size:17px;color:#d7cab2;letter-spacing:.05em}
+.bp-head .sub{font-family:var(--mono);font-size:10.5px;color:#6b6050;letter-spacing:.08em;margin-left:auto}
+.bsub{max-width:1180px;margin:0 auto 14px;font-size:12px;color:#7d7160;line-height:1.9;letter-spacing:.02em}
+.bsub b{color:#b8a98e;font-weight:400}
+
+.board-scroll{overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch;overscroll-behavior-x:contain;padding-bottom:8px}
+.board{
+  position:relative;width:100%;min-width:880px;max-width:1180px;margin:0 auto;
+  aspect-ratio:16/10;background:#3e352c;border:15px solid #6b5745;border-radius:2px;
+  box-shadow:inset 0 0 140px rgba(0,0,0,.8),0 30px 60px -30px #000;
+  overflow:hidden;user-select:none;-webkit-user-drag:none;touch-action:auto;
+}
+.board-hint{display:none;max-width:1180px;margin:0 auto 10px;font-family:var(--mono);font-size:10.5px;color:#7d6b57;letter-spacing:.06em}
+.board::before{
+  content:"";position:absolute;inset:0;pointer-events:none;z-index:1;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='c'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.55' numOctaves='2'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23c)' opacity='0.6'/%3E%3C/svg%3E");
+  opacity:.12;mix-blend-mode:overlay;
+}
+/* 底图：地图 */
+.mapbg{position:absolute;inset:0;z-index:0;opacity:.72}
+.mapbg svg{width:100%;height:100%;display:block}
+#boardSvg{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:6}
+#boardSvg path{fill:none;stroke:#c04a3c;stroke-width:2.2;stroke-linecap:round}
+#boardSvg path.dash{stroke-width:1.5;stroke-dasharray:7 6;stroke:#d9cbb0;opacity:.35}
+#boardSvg path.ok{stroke:#c94433;filter:drop-shadow(0 1px 2px rgba(0,0,0,.6))}
+#boardSvg path.bad{stroke:#6d6154;opacity:.5}
+
+/* 卡片 */
+.card{position:absolute;z-index:3;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.card .cbox{position:absolute;inset:0;box-shadow:2px 4px 14px rgba(0,0,0,.55);overflow:hidden}
+.card.linked .cbox{outline:1px solid rgba(200,70,55,.75)}
+.card.picked{z-index:9}
+.card.picked .cbox{outline:2px solid #d8503f;outline-offset:2px}
+.card.picked .pin{transform:scale(1.6)}
+.card.picked{animation:pickpulse 1.5s infinite}
+@keyframes pickpulse{0%,100%{filter:none}50%{filter:drop-shadow(0 0 7px rgba(216,80,63,.5))}}
+.card.ok-flash .cbox{animation:flash .7s}
+@keyframes flash{0%,100%{box-shadow:2px 4px 14px rgba(0,0,0,.55)}40%{box-shadow:0 0 0 3px rgba(200,70,55,.55),2px 4px 14px rgba(0,0,0,.55)}}
+.pin{
+  position:absolute;left:-8px;top:-8px;width:17px;height:17px;border-radius:50%;z-index:8;
+  background:radial-gradient(circle at 34% 30%,#ee6a56,#8e2117 70%);
+  box-shadow:0 2px 5px rgba(0,0,0,.7),inset 0 -1px 2px rgba(0,0,0,.4);
+  cursor:crosshair;transition:transform .15s;
+  touch-action:none;-webkit-tap-highlight-color:transparent;
+}
+.pin::after{content:"";position:absolute;inset:-16px;border-radius:50%}
+.pin:hover{transform:scale(1.25)}
+.card:hover .pin{transform:scale(1.15)}
+
+/* 卡片内容 */
+.papercard{background:#efe8d6;color:#3b342a;padding:7% 8%;font-size:8px;line-height:1.75}
+.papercard .ct{font-family:var(--mono);font-size:7.5px;color:#8a2119;letter-spacing:.06em;border-bottom:1px solid #cfc2a8;padding-bottom:3px;margin-bottom:4px}
+.papercard .cn{font-size:10px;font-weight:700;letter-spacing:.03em;margin-bottom:4px;line-height:1.4}
+.papercard .cd{font-family:var(--mono);font-size:6.5px;color:#8b816c;line-height:1.9}
+.papercard .cq{font-family:var(--kai);font-size:8px;color:#4a4238;line-height:1.8;margin-top:3px}
+
+.stub{background:#e8e3d2;color:#3b342a;padding:7% 7%;transform:rotate(-1.6deg)}
+.stub .hole{position:absolute;left:0;top:0;bottom:0;width:7%;background:radial-gradient(circle at 50% 6px,#3e352c 3px,transparent 3.5px) 0 0/100% 12px repeat-y;opacity:.5}
+.stub .sc{font-family:var(--mono);font-size:7px;color:#243d6b;line-height:2;padding-left:9%}
+.stub .sc b{font-size:9px;letter-spacing:.05em}
+
+.photocard{background:#f6f1e2;padding:4% 4% 12%;transform:rotate(1.2deg)}
+.photocard .ph{width:100%;height:100%;background:#1b1b1d;position:relative;overflow:hidden}
+.photocard .cap{position:absolute;left:0;right:0;bottom:1.5%;text-align:center;font-family:var(--mono);font-size:6px;color:#8b816c}
+
+.dutycard{background:#ece4d0;color:#423a2d;padding:5% 5%;transform:rotate(.8deg);font-family:var(--mono);font-size:6px}
+.dutycard .dh{border-bottom:1px solid #b7ab90;padding-bottom:2px;margin-bottom:3px;letter-spacing:.04em;font-size:6.5px}
+.dutycard .dr{display:flex;justify-content:space-between;border-bottom:1px dotted #cfc3aa;padding:1.2px 0}
+.dutycard .hl2{background:#f0d98a;color:#6b4c00}
+
+.billcard{background:#f9f4e6;color:#3b342a;padding:6%;font-family:var(--mono);font-size:6.5px;line-height:2;transform:rotate(-1deg)}
+.billcard .bh{font-size:8px;color:#8a2119;border-bottom:1px solid #cfc2a8;padding-bottom:3px;margin-bottom:4px;letter-spacing:.04em}
+.billcard .big{font-size:12px;color:#1f1a15}
+
+.guide{position:absolute;z-index:2;font-family:var(--kai);font-size:11px;color:#8e8069;line-height:1.9;transform:rotate(-2deg)}
+.guide2{position:absolute;z-index:2;background:#e8d87c;color:#4a3a1a;padding:2% 1.6%;width:13%;font-family:var(--kai);font-size:9px;line-height:1.8;box-shadow:2px 3px 10px rgba(0,0,0,.5);transform:rotate(-4deg)}
+
+/* 笔记区 */
+.notes{max-width:1180px;margin:26px auto 0}
+.notes h3{font-size:12px;color:#7d7160;letter-spacing:.24em;font-family:var(--mono);font-weight:400;margin:0 0 12px;display:flex;align-items:center;gap:10px}
+.notes h3::after{content:"";flex:1;height:1px;background:#332c24}
+.nlist{display:grid;gap:8px}
+.nitem{
+  display:flex;gap:14px;font-size:13px;color:#b3a58c;line-height:1.85;
+  border-left:2px solid #5a4c3c;padding:6px 0 6px 14px;opacity:0;animation:nin .6s forwards;
+}
+@keyframes nin{to{opacity:1}}
+.nitem i{font-style:normal;font-family:var(--mono);font-size:10px;color:#8a2119;flex:none;padding-top:3px;letter-spacing:.05em}
+.nitem.wrong{border-left-color:#6d6154;color:#7d7160;font-size:12px}
+.board-ctl{max-width:1180px;margin:24px auto 0;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.pbar{flex:1;min-width:180px;height:2px;background:#332c24;position:relative}
+.pbar i{position:absolute;left:0;top:0;bottom:0;background:#b23f31;width:0;transition:width .6s}
+.pnum{font-family:var(--mono);font-size:11px;color:#7d7160;letter-spacing:.1em}
+.solvebtn{
+  background:none;border:1px solid #6b5745;color:#c8bda8;font-family:var(--serif);font-size:13px;
+  letter-spacing:.22em;padding:9px 26px;cursor:pointer;opacity:.3;pointer-events:none;transition:.4s;
+}
+.solvebtn.on{opacity:1;pointer-events:auto;border-color:#b8382b;color:#e2b8ae}
+.solvebtn.on:hover{background:#b8382b;color:#1b1815}
+.hint{width:100%;font-size:11px;color:#6b6050;font-family:var(--mono);letter-spacing:.06em;margin-top:4px}
+.hintbtn{
+  background:none;border:1px dashed #5b4b3b;color:#8d8170;font-family:var(--mono);
+  font-size:10.5px;letter-spacing:.14em;padding:8px 14px;cursor:pointer;transition:.3s;
+}
+.hintbtn:hover{border-color:#b8382b;color:#d8c8b0}
+.hintmsg{width:100%;font-size:12px;color:#b9ac95;font-family:var(--mono);letter-spacing:.04em;line-height:1.8;margin-top:2px}
+.hintmsg b{color:#d8695b;font-weight:400}
+.resetbtn{
+  background:none;border:1px solid #4a3b32;color:#7d6a5e;font-family:var(--mono);
+  font-size:10.5px;letter-spacing:.14em;padding:8px 14px;cursor:pointer;transition:.3s;
+}
+.resetbtn:hover{border-color:#b8382b;color:#d8c8b0}
+
+/* 结案 */
+.reveal{position:fixed;inset:0;background:#080808;z-index:9998;overflow:auto;padding:8vh 24px 12vh}
+.rv-in{max-width:660px;margin:0 auto;color:#a89b84;font-size:14px;line-height:2.1;letter-spacing:.02em}
+.rv-in h2{font-size:12px;letter-spacing:.5em;color:#5c5344;font-weight:400;font-family:var(--mono);margin:0 0 42px;text-align:center}
+.rvl{display:flex;gap:18px;opacity:0;margin-bottom:16px}
+.rvl .d{font-family:var(--mono);font-size:10.5px;color:#8a2119;flex:none;padding-top:5px;letter-spacing:.05em}
+.rvl .t{color:#b3a68e}
+.rvl.key .t{color:#e0d3b8}
+.rv-end{margin-top:56px;opacity:0}
+.rv-end p{margin:0 0 10px;color:#d9cbb0;font-family:var(--kai);font-size:16px;letter-spacing:.06em}
+.rv-end .m{font-family:var(--mono);font-size:10px;color:#4a4335;letter-spacing:.4em;margin-top:40px}
+.rv-back{display:inline-block;margin-top:46px;font-family:var(--mono);font-size:11px;color:#5c5344;letter-spacing:.14em;border-bottom:1px solid #2a2520;padding-bottom:2px}
+.rv-back:hover{color:#a89b84;text-decoration:none}
+
+/* 13层 */
+.dark-page{background:#0b0b0c;color:#8b8272;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:26px;padding:40px}
+.dark-page figure{margin:0;width:min(440px,88vw)}
+.dark-page figcaption{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;color:#4a4335;margin-top:10px}
+.dark-page p{font-family:var(--kai);font-size:15px;letter-spacing:.1em;color:#8b8272}
+
+@media (max-width:720px){
+  .post{grid-template-columns:1fr}
+  .pu{display:flex;align-items:center;gap:12px;text-align:left;border-right:none;border-bottom:1px solid var(--line);padding:10px 14px}
+  .av{width:40px;height:40px;margin:0}
+  .ps{display:none}.rk{margin:0}.un{font-size:13px}
+  .pc{padding:14px 16px 18px}
+  .col-a,.col-n{display:none}
+  .col-l{width:88px;font-size:11px}
+  .board{border-width:8px;min-width:1000px}
+  .board-page{margin:0 -12px;padding:18px 12px 60px}
+  .board-hint{display:block;padding:0 2px 10px}
+  .bsub{font-size:11.5px;line-height:1.8}
+  .main{padding:14px 12px 40px}
+  .tbi{height:48px}.logo{font-size:19px}.tnav{display:none}
+  .bp-head{flex-wrap:wrap}.bp-head .sub{display:none}
+  .papercard{font-size:9px}
+  .papercard .cn{font-size:11.5px}
+  .papercard .ct{font-size:8.5px}
+  .papercard .cd{font-size:7.5px}
+  .papercard .cq{font-size:9px}
+  .stub .sc{font-size:8px}
+  .stub .sc b{font-size:10px}
+  .billcard{font-size:7.5px}
+  .billcard .bh{font-size:9px}
+  .dutycard{font-size:7px}
+  .guide{font-size:12px}
+  .nitem{font-size:12.5px;gap:10px;padding-left:10px}
+  .board-ctl{gap:10px}
+  .pnum{font-size:10px}
+  .solvebtn{padding:8px 18px;font-size:12px;letter-spacing:.16em}
+  .hintbtn{padding:8px 12px;font-size:10px}
+}
+</style>
+</head>
+<body>
+<div id="app"></div>
+
+<script>
+/* ============================================================
+   夜航船 · 灵异怪谈 · 江北区专版
+   ============================================================ */
+
+const FIG = {
+  door:`<svg viewBox="0 0 400 250" xmlns="http://www.w3.org/2000/svg">
+    <defs><filter id="fb"><feGaussianBlur stdDeviation="1.1"/></filter>
+    <filter id="fn"><feTurbulence baseFrequency="0.85" numOctaves="2"/><feColorMatrix type="saturate" values="0"/></filter></defs>
+    <rect width="400" height="250" fill="#191919"/><rect y="130" width="400" height="120" fill="#0e0e0f"/>
+    <rect x="0" y="126" width="400" height="7" fill="#6d675c" opacity=".5"/>
+    <rect x="0" y="133" width="400" height="2" fill="#000" opacity=".8"/>
+    <ellipse cx="205" cy="212" rx="162" ry="21" fill="#333b40" opacity=".9"/>
+    <ellipse cx="205" cy="209" rx="132" ry="12" fill="#5c666b" opacity=".42"/>
+    <ellipse cx="160" cy="204" rx="26" ry="4" fill="#8b9599" opacity=".5" filter="url(#fb)"/>
+    <g transform="rotate(-7 200 214)"><rect x="176" y="202" width="48" height="29" rx="1" fill="#cfc7b4" opacity=".92"/>
+    <rect x="182" y="209" width="31" height="2.4" fill="#8a826f"/><rect x="182" y="215" width="20" height="2" fill="#9a917c"/>
+    <rect x="182" y="220" width="26" height="2" fill="#9a917c"/></g>
+    <rect width="400" height="250" filter="url(#fn)" opacity=".11"/></svg>`,
+
+  peek:`<svg viewBox="0 0 400 250" xmlns="http://www.w3.org/2000/svg">
+    <defs><filter id="fp"><feTurbulence baseFrequency="1.1" numOctaves="2"/><feColorMatrix type="saturate" values="0"/></filter>
+    <filter id="pb"><feGaussianBlur stdDeviation="3.4"/></filter></defs>
+    <rect width="400" height="250" fill="#0a0a0b"/>
+    <circle cx="200" cy="125" r="96" fill="#141416"/>
+    <circle cx="200" cy="125" r="88" fill="#2b2f31"/>
+    <g filter="url(#pb)">
+      <ellipse cx="200" cy="98" rx="27" ry="30" fill="#111"/>
+      <path d="M150 220 q50 -78 100 0 z" fill="#1a3d5c"/>
+      <rect x="152" y="150" width="96" height="16" fill="#7d6420"/>
+    </g>
+    <circle cx="200" cy="125" r="88" fill="none" stroke="#000" stroke-width="16" opacity=".85"/>
+    <rect width="400" height="250" filter="url(#fp)" opacity=".3"/></svg>`,
+
+  wash:`<svg viewBox="0 0 400 250" xmlns="http://www.w3.org/2000/svg">
+    <defs><filter id="fw"><feTurbulence baseFrequency="0.7" numOctaves="2"/><feColorMatrix type="saturate" values="0"/></filter></defs>
+    <rect width="400" height="250" fill="#0c0d0e"/><rect y="118" width="400" height="132" fill="#1b2124"/>
+    <ellipse cx="200" cy="160" rx="180" ry="34" fill="#2a3336" opacity=".8"/>
+    <ellipse cx="140" cy="176" rx="70" ry="11" fill="#3f4a4d" opacity=".55"/>
+    <ellipse cx="280" cy="196" rx="58" ry="9" fill="#3a4447" opacity=".45"/>
+    <rect x="148" y="86" width="118" height="13" fill="#c9a227" opacity=".82"/>
+    <circle cx="205" cy="70" r="42" fill="#141819" stroke="#2a3234" stroke-width="2"/>
+    <circle cx="205" cy="70" r="30" fill="#0d1011"/>
+    <ellipse cx="96" cy="205" rx="26" ry="8" fill="#d8d4c8" opacity=".28"/>
+    <rect width="400" height="250" filter="url(#fw)" opacity=".16"/></svg>`,
+
+  meter:`<svg viewBox="0 0 400 250" xmlns="http://www.w3.org/2000/svg">
+    <defs><filter id="fm"><feTurbulence baseFrequency="0.9" numOctaves="2"/><feColorMatrix type="saturate" values="0"/></filter></defs>
+    <rect width="400" height="250" fill="#221f1b"/>
+    <circle cx="200" cy="118" r="94" fill="#d8d2c2"/><circle cx="200" cy="118" r="86" fill="#eae4d4"/>
+    <circle cx="200" cy="118" r="66" fill="#15130f"/>
+    <text x="200" y="130" text-anchor="middle" font-family="monospace" font-size="34" letter-spacing="5" fill="#e8e2d2">002147</text>
+    <text x="200" y="152" text-anchor="middle" font-family="monospace" font-size="9" letter-spacing="3" fill="#7d7563">B-1147</text>
+    <circle cx="200" cy="186" r="7" fill="#8b2f22"/>
+    <rect width="400" height="250" filter="url(#fm)" opacity=".13"/></svg>`
+};
+
+function fig(kind, cap){
+  return `<figure class="fig"><div class="fig-in">${FIG[kind]}</div><figcaption>${cap}</figcaption></figure>`;
+}
+
+const THREADS = [
+{
+  id:1, title:'十三楼的水声', tag:'我住顶楼，可楼上一直有人在洗澡',
+  author:'南风', av:'g1', reg:'2009-03-11', posts:34, last:'2011-10-02',
+  time:'2011-06-30 23:47', views:'4,208', replies:12,
+  lr:'2019-11-14 21:30', lrby:'雨停之前',
+  sig:'我住 1101。',
+  body:`
+    <p>先说下我家。</p>
+    <p>建设路 37 号，纺织厂的老家属楼，九三年盖的，十一层，没电梯。楼梯间的墙刷的是绿漆，一半高，上面是白的。现在绿的那半已经黄了。</p>
+    <p>我住 11 楼，最里面那户，<b>1101</b>。一梯四户，我一个人，住了六年。</p>
+    <p>从上个月开始，凌晨一点多，天花板上会有水声。</p>
+    <p>不是水管咕噜咕噜那种。是洗澡的声音。水打在瓷砖上的声音，一片一片的，中间会停一下，然后接着来。<br>
+       洗完还有人挪凳子的声音。塑料凳子，在地上拖，“吱——”一声，很短。</p>
+    <p>我住顶楼。</p>
+    <p>第一次听见我以为是楼上有人，第二天去问物业。物业的老陈说楼上是设备层，没人住，也上不去。<br>
+       我说那水声是什么。他说水管。<br>
+       我说水管会挪凳子吗。<br>
+       他没说话。</p>
+    <p>我自己上去过一次。楼梯到 11 楼就断了，再往上是扇铁门，锁着，锈得很厉害。门缝底下有水渗出来，不多，一小条。<br>
+       我蹲下去摸了一下。是干净的。不像污水，像刚放出来的自来水，还有点温。</p>
+    <p>我在门口站了大概五分钟。里面一直有水声。<br>
+       中间停了一次，然后又开了。</p>
+    <p>我不太敢再上去了。</p>
+    <p>对了，我把我听见的日期记在本子上了：<b>六月三十、七月三十一、八月三十一</b>。<br>
+       都是月末。我不知道这算不算什么。</p>
+    <p>有没有人知道这是怎么回事。</p>
+    <p class="dim">（照片在下面）</p>
+    <p class="ghost">我在的，你不用上来。</p>`,
+  fig:{kind:'door', cap:'IMG_0431.jpg　2011-07-03 22:41'},
+  floors:[
+    {name:'老K', av:'g2', reg:'2005-08-02', posts:'2,140', last:'2019-11-02', time:'2011-07-01 00:12',
+     body:'<p>水箱就在上面。十一层的老楼都是二次供水，顶层上面是设备层，整栋楼的水都从那儿走。</p><p>水声正常。</p>'},
+    {name:'南风', av:'g1', reg:'2009-03-11', posts:34, last:'2011-10-02', time:'2011-07-01 00:20', op:true,
+     body:'<p>那挪凳子的声音呢。</p>'},
+    {name:'老K', av:'g2', reg:'2005-08-02', posts:'2,140', last:'2019-11-02', time:'2011-07-01 00:26',
+     body:'<p>……热胀冷缩吧。</p>'},
+    {name:'夜班老周', av:'g3', reg:'2008-11-24', posts:87, last:'2012-03-04', time:'2011-07-02 01:55',
+     body:'<p>我开 53 路的，跑夜班。建设路那片的二次供水 2010 年统一改过，设备层全部封存了，钥匙不在物业手上，在自来水公司。</p><p>你们物业要是没钥匙，那扇门就不该开得了。</p><p>开得了，说明有人开过。</p>'},
+    {name:'南风', av:'g1', reg:'2009-03-11', posts:34, last:'2011-10-02', time:'2011-07-02 02:10', op:true,
+     body:'<p>那我怎么办。</p>'},
+    {name:'夜班老周', av:'g3', reg:'2008-11-24', posts:87, last:'2012-03-04', time:'2011-07-02 02:19',
+     body:'<p><b class="hl">把门口那滩水擦干净。别让人知道你注意到了。</b></p>'},
+    {name:'三楼西户', av:'g4', reg:'2011-01-19', posts:19, last:'2012-06-30', time:'2011-07-02 09:41',
+     body:'<p>姑娘，你一个人住？我也是这一片的，幸福里 3 号楼。</p><p>我们这栋楼去年也有过这种事。半夜有人敲门，开门没人，地上一滩水。</p>'},
+    {name:'南风', av:'g1', reg:'2009-03-11', posts:34, last:'2011-10-02', time:'2011-07-02 10:03', op:true,
+     body:'<p>阿姨，后来呢。</p>'},
+    {name:'三楼西户', av:'g4', reg:'2011-01-19', posts:19, last:'2012-06-30', time:'2011-07-02 10:20',
+     body:'<p>后来没了。我也没敢开过门。</p>'},
+    {name:'南风', av:'g1', reg:'2009-03-11', posts:34, last:'2011-10-02', time:'2011-07-03 22:47', op:true,
+     body:'<p>照片。</p><p>门缝下面的水，水里泡着一张卡片。我抠出来看了，上面印着“抄表”两个字，剩下的泡烂了，看不清。背面是复写纸的那种蓝，有一排小孔，像是从本子上撕下来的。</p>'},
+    {name:'路人甲乙丙', av:'g5', reg:'2012-06-14', posts:6, last:'2013-02-11', time:'2011-07-04 11:02',
+     body:'<p>楼上这位大哥说得也太吓人了，就是个抄表卡吧，掉地上泡水了。</p>'},
+    {name:'雨停之前', av:'g1', reg:'2014-05-06', posts:'1,024', last:'2019-11-30', time:'2019-11-14 21:30', me:true,
+     body:'<p>楼主还在吗。</p>'}
+  ]
+},
+{
+  id:2, title:'末班车上多出来的一站', tag:'建材市场站 2011 年就拆了，可有人在那儿上车',
+  author:'夜班老周', av:'g3', reg:'2008-11-24', posts:87, last:'2012-03-04',
+  time:'2012-02-29 02:11', views:'2,916', replies:9,
+  lr:'2019-11-14 21:33', lrby:'雨停之前',
+  sig:'53 路，末班，22:40。',
+  body:`
+    <p>53 路末班，22:40 火车站发车，我跑了九年。<br>
+       这条线十九站，最后一站是江北开发区。中间有一站叫建材市场，2011 年拆的，市场推平了，站牌还立着，铁皮的，字掉了一半。</p>
+    <p>没人等车，我也不停。快两年了，一次都没停过。</p>
+    <p>昨天晚上有人按铃。</p>
+    <p>我从后视镜看了一眼，没人站起来。我又按了一下报站，还是没人。我以为是哪个按钮卡住了，就靠边停了，开门。</p>
+    <p>上来一个女的。<br>
+       穿雨衣。那种老式的，深绿色的，帽子扣着。那几天没下雨，白天二十多度。</p>
+    <p>她投了币，往后走，坐在最后一排靠窗。<br>
+       我从后视镜里看她。她一直低着头。头发在滴水，从帽檐下面滴，滴在座位上。</p>
+    <p>我问了一句“到哪儿”，她没应。</p>
+    <p>到终点站，我熄火，回头喊了一声。<br>
+       座位上没人。<br>
+       那滩水还在。座位上还有一只塑料袋，叠得整整齐齐的，放在水中间。</p>
+    <p>袋子是干的。</p>
+    <p>我拿起来看了。是那种装东西的袋子，上面印着蓝色的字：江州市自来水公司。<br>
+       <b>袋子不是空的。</b>里面有一张纸。复写的，蓝字，边上有一排小孔，是从本子上撕下来的。</p>
+    <p>上面写着：<b class="hl">建设路 37 号　1101</b>。<br>
+       后面跟着日期：<b>9 月 30 日</b>。<br>
+       再后面是一个签名的字头，只有一个字，看不全，像“李”。</p>
+    <p>我把这张纸夹在行车记录本里了。我没敢交出去。交给谁呢，说我在末班车上捡到的？</p>
+    <p>建材市场那一站，站牌后面是什么，有人知道吗。</p>`,
+  fig:null,
+  floors:[
+    {name:'老K', av:'g2', reg:'2005-08-02', posts:'2,140', last:'2019-11-02', time:'2012-02-29 08:15',
+     body:'<p>站牌后面是围墙吧，里面空的。</p>'},
+    {name:'江北小张', av:'g5', reg:'2010-09-03', posts:52, last:'2012-12-20', time:'2012-02-29 09:40',
+     body:'<p>周师傅你是不是困了。跑夜班的都这样，我表哥开出租，也说过半夜拉到过穿雨衣的。</p>'},
+    {name:'夜班老周', av:'g3', reg:'2008-11-24', posts:87, last:'2012-03-04', time:'2012-02-29 10:02', op:true,
+     body:'<p>我没困。我开了九年夜班。</p>'},
+    {name:'夜班老周', av:'g3', reg:'2008-11-24', posts:87, last:'2012-03-04', time:'2012-02-29 10:14', op:true,
+     body:'<p>还有一件事我没写。</p><p>她上车的时候，雨衣下摆是湿的，一直在滴水。滴在过道上，从车头滴到车尾，一路。</p><p>我第二天早上回去看，那一路的水痕，是从站牌后面那个围墙缺口开始的。</p>'},
+    {name:'江北小张', av:'g5', reg:'2010-09-03', posts:52, last:'2012-12-20', time:'2012-02-29 10:31',
+     body:'<p>那女的可能是从围墙那边翻过来的。那边好像在施工。</p>'},
+    {name:'夜班老周', av:'g3', reg:'2008-11-24', posts:87, last:'2012-03-04', time:'2012-02-29 11:15', op:true,
+     body:'<p>那边没施工。2011 年拆完就没人管了。</p><p>我今天早上去看了一眼。围墙缺了个口子，里面是个水泥台子，上面一个井盖。</p><p><b class="hl">井盖是开的。</b></p>'},
+    {name:'路人甲乙丙', av:'g5', reg:'2012-06-14', posts:6, last:'2013-02-11', time:'2012-02-29 12:44',
+     body:'<p>别说了别说了。</p>'},
+    {name:'风穿过走廊', av:'g5', reg:'2012-01-30', posts:3, last:'2012-03-02', time:'2012-03-01 00:44',
+     body:'<p>周师傅，你贴的那张纸，上面写的 1101，是不是建设路 37 号？</p><p>我去年在那儿住过。</p>'},
+    {name:'夜班老周', av:'g3', reg:'2008-11-24', posts:87, last:'2012-03-04', time:'2012-03-03 23:58', op:true,
+     body:'<p>删了。</p>'},
+    {name:'雨停之前', av:'g1', reg:'2014-05-06', posts:'1,024', last:'2019-11-30', time:'2019-11-14 21:33', me:true,
+     body:'<p>周师傅，那个井盖 2013 年 6 月才封上。</p>'}
+  ]
+},
+{
+  id:3, title:'每个月最后一天的半夜，有人敲我的门', tag:'三下，不轻不重。开门没人，地上一滩水',
+  author:'三楼西户', av:'g4', reg:'2011-01-19', posts:19, last:'2012-06-30',
+  time:'2012-05-31 01:38', views:'6,041', replies:8,
+  lr:'2019-11-14 21:41', lrby:'雨停之前',
+  sig:'我一个人住。',
+  body:`
+    <p>我今年七十，一个人住幸福里 3 号楼，三楼西户，住了二十几年。<br>
+       我睡眠不好，每天一点左右会醒一次，上厕所，然后再睡。</p>
+    <p>前年就开始了。每个月最后一天的半夜，有人敲我的门。</p>
+    <p>三下。不轻不重。间隔很长，笃、笃、笃，敲完就没了。</p>
+    <p>第一次我以为听错了。第二次我起来开门，门口没人，地上有一小滩水。<br>
+       第三次也是。</p>
+    <p>我数了。到昨天，一共十五次。</p>
+    <p>上个月我让儿子给我装了个猫眼。带拍照的那种，五十块钱，网上买的。<br>
+       昨天晚上我没开灯，从猫眼里看出去——</p>
+    <p>一个男的，站在门口，低着头。穿蓝色的衣服，那种工厂的工装，肩上有一条黄色的反光条。<br>
+       他手里拿着一个本子，在写。<br>
+       写了大概两分钟，合上本子，转身下楼了。<br>
+       他下楼的时候，我看见他鞋是湿的。</p>
+    <p>他一直没抬头。所以我也只拍到这么一张。</p>
+    <p class="dim">（照片在下面）</p>
+    <p>今天白天我跟楼下的老李说了，老李说可能是抄水表的。<br>
+       可是抄水表的是个女的，姓张，我认识，她白天来，一年来四次。<br>
+       而且抄水表不会半夜一点。</p>
+    <p>还有一件事。他下楼以后，我听见楼下有两声很轻的响，像是有人把什么东西放在地上。</p>
+    <p>第二天早上，一楼的楼道里多了一个塑料桶。</p>`,
+  fig:{kind:'peek', cap:'猫眼拍照 2012-05-31 01:11'},
+  floors:[
+    {name:'晚归的猫', av:'g5', reg:'2010-07-21', posts:41, last:'2012-11-02', time:'2012-05-31 02:20',
+     body:'<p>我也住幸福里，5 号楼。</p><p>阿姨你说的那个桶，是不是白色的，上面有字？</p>'},
+    {name:'三楼西户', av:'g4', reg:'2011-01-19', posts:19, last:'2012-06-30', time:'2012-05-31 02:31', op:true,
+     body:'<p>是白的。上面有字，我看不清，好像是“37”。</p>'},
+    {name:'晚归的猫', av:'g5', reg:'2010-07-21', posts:41, last:'2012-11-02', time:'2012-05-31 02:40',
+     body:'<p>……37 号不是我们小区。</p><p>37 号在建设路西头。</p>'},
+    {name:'老K', av:'g2', reg:'2005-08-02', posts:'2,140', last:'2019-11-02', time:'2012-05-31 09:12',
+     body:'<p>会不会是查煤气的。</p>'},
+    {name:'三楼西户', av:'g4', reg:'2011-01-19', posts:19, last:'2012-06-30', time:'2012-05-31 09:40', op:true,
+     body:'<p>查煤气的也白天来。</p>'},
+    {name:'江北小张', av:'g5', reg:'2010-09-03', posts:52, last:'2012-12-20', time:'2012-05-31 10:05',
+     body:'<p>阿姨，你儿子电话多少，让他回来住几天吧。</p>'},
+    {name:'三楼西户', av:'g4', reg:'2011-01-19', posts:19, last:'2012-06-30', time:'2012-05-31 10:22', op:true,
+     body:'<p>他忙。</p>'},
+    {name:'雨停之前', av:'g1', reg:'2014-05-06', posts:'1,024', last:'2019-11-30', time:'2019-11-14 21:41', me:true,
+     body:'<p>您后来搬走了吗。</p>'}
+  ]
+},
+{
+  id:4, title:'地下室的洗衣机，半夜自己在转', tag:'2010 年就断电了，封条都脆了',
+  author:'晚归的猫', av:'g5', reg:'2010-07-21', posts:41, last:'2012-11-02',
+  time:'2012-10-31 03:02', views:'1,873', replies:6,
+  lr:'2019-11-14 21:52', lrby:'雨停之前',
+  sig:'',
+  body:`
+    <p>幸福里 B 区地下车库，最里面，消防通道旁边，有个公共洗衣房。<br>
+       2010 年就停了，门上贴着物业的封条，封条都脆了。</p>
+    <p>上周三我加班，两点多才回来。车停好往里走，听见洗衣机在转。<br>
+       不是幻觉。就是那种老式波轮洗衣机，脱水的时候“咣当咣当”的。</p>
+    <p>我推门进去。</p>
+    <p>封条断了，门是开的。<br>
+       地上全是水，漫到脚踝。<br>
+       <b>是热的。</b></p>
+    <p>最里面那台机器在转。滚筒里有一件衣服，蓝色的，工装，我看见了反光条。<br>
+       水是红色的，很淡，像洗过很多遍。</p>
+    <p>水里有东西。一个白色的塑料桶，倒在水里，桶身上用记号笔写了字。</p>
+    <p>我看了两遍，以为是物业的编号。可是这里是 B 区，5 号楼。</p>
+    <p>桶上写的是：<b class="hl">37 号</b>。</p>
+    <p>我在门口站了大概十秒。然后退出来，把门带上，跑回家，锁门，报了物业。</p>
+    <p>物业第二天去看，说里面是干的，机器没通电，电闸拉了两年了。</p>
+    <p>我今天又去看了一次。地是干的。封条重新贴上了。桶没了。<br>
+       但是我拍了照。</p>
+    <p class="dim">（照片在下面）</p>
+    <p>我不求别的。我就想知道有没有人是 B 区的，那天晚上有没有也听见。</p>`,
+  fig:{kind:'wash', cap:'IMG_0778.jpg　2012-10-31 02:58'},
+  floors:[
+    {name:'老K', av:'g2', reg:'2005-08-02', posts:'2,140', last:'2019-11-02', time:'2012-10-31 08:33',
+     body:'<p>楼主你是不是加完班喝酒了。</p>'},
+    {name:'晚归的猫', av:'g5', reg:'2010-07-21', posts:41, last:'2012-11-02', time:'2012-10-31 09:02', op:true,
+     body:'<p>我没喝酒。我拍照了。</p>'},
+    {name:'江北小张', av:'g5', reg:'2010-09-03', posts:52, last:'2012-12-20', time:'2012-10-31 09:50',
+     body:'<p>这照片太黑了，什么都看不出来。</p>'},
+    {name:'晚归的猫', av:'g5', reg:'2010-07-21', posts:41, last:'2012-11-02', time:'2012-10-31 10:11', op:true,
+     body:'<p>B 区，最里面，消防通道旁边。</p><p>你们去看就知道了，地漏边上还有一圈印子。</p><p>那个桶，白色，装了将近一半的水，一个人提得动。</p>'},
+    {name:'三楼西户', av:'g4', reg:'2011-01-19', posts:19, last:'2012-06-30', time:'2012-10-31 15:22',
+     body:'<p>孩子，那个桶我见过。</p><p>五月的时候我跟你说过，我们楼道里多了一个桶。白色的。后来不见了。</p><p>你现在又说有桶。你们 B 区跟我们 3 号楼，隔着大半个小区。</p>'},
+    {name:'雨停之前', av:'g1', reg:'2014-05-06', posts:'1,024', last:'2019-11-30', time:'2019-11-14 21:52', me:true,
+     body:'<p>B 区现在封了。进不去。</p>'}
+  ]
+},
+{
+  id:5, title:'凌晨一点十分，我家的水表在走字', tag:'我一个人住，十一点就睡了',
+  author:'夏至', av:'g2', reg:'2012-04-11', posts:7, last:'2013-01-09',
+  time:'2013-01-08 23:56', views:'612', replies:5,
+  lr:'2019-11-30 23:57', lrby:'雨停之前',
+  sig:'',
+  body:`
+    <p>我一个人住，十一点睡，七点起。<br>
+       去年四月搬来的，建设路 37 号，11 楼，<b>1101</b>。</p>
+    <p>房子是一室一厅，老户型，租金比周围便宜一半。房东说上一户走得急，空了半年，所以便宜。</p>
+    <p>上个月水费多了三十七块。我一开始以为抄错了。</p>
+    <p>我去看水表，记了三天。每天半夜起来看一次。</p>
+    <p>第一天：1:10 起，1:40 停。走 0.02 吨。<br>
+       第二天：一样。<br>
+       第三天：一样。</p>
+    <p>我白天不在家，晚上十一点以后不用水。洗衣机周末才开一次。<br>
+       这 0.02 吨，是洗一次澡的量。</p>
+    <p>我打电话给水务。第二天来人了，一个师傅，看了表，看了管，说没问题。<br>
+       我说那表为什么走。<br>
+       他说可能是别人家的表接错了。他说他回去查。</p>
+    <p>他没再联系我。</p>
+    <p>我住 11 楼，顶楼。<br>
+       我今天问物业，我这栋楼的顶楼上面是什么。物业说设备层。</p>
+    <p>我现在不敢在家洗澡。我在公司洗。</p>
+    <p>还有一件事，不知道有没有关系。</p>
+    <p>我搬来的时候，阳台柜子里有半瓶洗发水，还有个塑料盆。房东说都是上一户的，让我扔了。<br>
+       我没扔。洗发水还剩三分之一。</p>
+    <p>上一个住在这儿的人，是什么时候走的。</p>
+    <p class="dim">（照片在下面，表号 B-1147）</p>`,
+  fig:{kind:'meter', cap:'IMG_1204.jpg　2013-01-07 01:12'},
+  floors:[
+    {name:'游客', av:'g5', rank:'游客', reg:'—', posts:'—', last:'—', time:'2013-01-09 00:31',
+     body:'<p>楼主你先别自己吓自己，老楼管道串水很常见。</p>'},
+    {name:'游客', av:'g5', rank:'游客', reg:'—', posts:'—', last:'—', time:'2013-01-09 01:07',
+     body:'<p>这种事别发网上。删了吧。</p>'},
+    {name:'夏至', av:'g2', reg:'2012-04-11', posts:7, last:'2013-01-09', time:'2013-01-09 22:14', op:true,
+     body:'<p>我不会删。我要留着。</p>'},
+    {name:'雨停之前', av:'g1', reg:'2014-05-06', posts:'1,024', last:'2019-11-30', time:'2019-11-14 22:03', me:true,
+     body:'<p>楼主还在吗。</p>'},
+    {name:'雨停之前', av:'g1', reg:'2014-05-06', posts:'1,024', last:'2019-11-30', time:'2019-11-30 23:57', me:true,
+     body:'<p>我打了你留的手机号，是空号。</p>'}
+  ]
+}
+];
+
+/* ================= 外壳 ================= */
+function shell(inner){
+  return `
+  <div class="topbar"><div class="wrap tbi">
+    <a href="#/" class="logo">夜航船</a>
+    <span class="lsub">bbs.yehangchuan.net</span>
+    <div class="tnav"><a href="#/" style="color:#a2948a">首页</a><span>论坛</span><span>搜索</span>
+      <span class="off">登录</span><span class="off">注册</span></div>
+  </div></div>
+  <div class="navbar"><div class="wrap nbi">
+    <a href="#/">夜航船</a><i>›</i><a href="#/">灵异怪谈</a><i>›</i><b>江北区专版</b>
+    <span class="nstat">今日: 0　昨日: 0　会员: 209</span>
+  </div></div>
+  <div class="wrap main">${inner}</div>
+  <div class="footer"><div class="wrap">
+    Powered by Discuz! 6.1.0 &nbsp;|&nbsp; © 2008-2019 夜航船 &nbsp;|&nbsp; GMT+8, 2019-11-30 23:59<br>
+    Processed in 0.031 second(s), 6 queries &nbsp;|&nbsp; 本版已于 2019 年 11 月关闭
+  </div></div>`;
+}
+
+/* ================= 首页 ================= */
+function renderIndex(){
+  const rows = THREADS.map(t=>`
+    <tr>
+      <td class="col-i"><span class="dot ${t.id===5?'hot':''}"></span></td>
+      <td><a href="#/t/${t.id}" class="tt">${t.title}</a><div class="tg">${t.tag}</div></td>
+      <td class="col-a">${t.author}</td>
+      <td class="col-n">${t.replies} / ${t.views}</td>
+      <td class="col-l">${t.lr}<br><b>${t.lrby}</b></td>
+    </tr>`).join('');
+
+  document.getElementById('app').innerHTML = shell(`
+  <div class="notice"><b>公告</b><span>本版已于 2019 年 11 月停止更新，仅作存档。新帖一律锁定。</span></div>
+  <h2 class="sec-title">江北区专版 <small>共 217 主题 · 3,116 帖</small></h2>
+  <table class="tbl"><thead><tr>
+    <th class="col-i"></th><th>主题</th><th class="col-a">作者</th>
+    <th class="col-n">回复/查看</th><th class="col-l">最后发表</th>
+  </tr></thead><tbody>${rows}</tbody></table>
+
+  <div class="rules">
+    <h4>本版规则</h4>
+    <span>一</span>禁止发布真实姓名、住址、电话、单位。<br>
+    <span>二</span>禁止转载未经证实的消息，禁止造谣。<br>
+    <span>三</span>违规帖一律移至 <a href="#/archive">回收站</a>，不再另行通知。<br>
+    <span>四</span>请勿挖坟。超过六个月无人回复的主题自动锁定。
+  </div>
+
+  <div class="online">
+    在线会员 - 共 1 人在线 - 1 会员(0 隐身), 0 游客 &nbsp;·&nbsp; <b>雨停之前</b><br>
+    版主: <b>雨停之前</b> &nbsp;·&nbsp; 本版成立于 2008-03-14 &nbsp;·&nbsp; 最后一帖 2013-01-09
+  </div>`);
+  document.title = '夜航船 · 灵异怪谈 · 江北区专版';
+}
+
+/* ================= 帖子 ================= */
+function postHTML(u, i, op){
+  const rank = u.rank || (op ? '楼主' : '注册会员');
+  return `
+  <div class="post ${u.me?'me':''}">
+    <aside class="pu">
+      <div class="av ${u.av||'g1'}"></div>
+      <div class="un">${u.name}</div>
+      <div class="rk">${rank}</div>
+      <div class="ps">
+        <span>帖子 ${u.posts||'—'}</span>
+        <span>注册 ${u.reg||'—'}</span>
+        <span class="last">最后登录 ${u.last||'—'}</span>
+      </div>
+    </aside>
+    <div class="pc">
+      <div class="phd"><span>发表于 ${u.time}</span><span class="fl">${i+1} 楼</span></div>
+      <div class="pb">${u.body}</div>
+      ${u.sig ? `<div class="sig">${u.sig}</div>` : ''}
+    </div>
+  </div>`;
+}
+
+function renderThread(id){
+  const t = THREADS.find(x=>x.id===id) || THREADS[0];
+  const op = {
+    name:t.author, av:t.av, reg:t.reg, posts:t.posts, last:t.last,
+    time:t.time, body:t.body + (t.fig ? fig(t.fig.kind, t.fig.cap) : ''), sig:t.sig, rank:'楼主'
+  };
+  const all = [op, ...t.floors];
+
+  document.getElementById('app').innerHTML = shell(`
+  <div class="backbar">
+    <div class="crumb"><a href="#/">夜航船</a> › <a href="#/">灵异怪谈</a> › <a href="#/">江北区专版</a> › 正文</div>
+  </div>
+  <div class="backbar" style="margin-bottom:16px">
+    <a href="#/" class="backlink">← 返回版面</a>
+    <a href="#/archive" class="backlink" style="opacity:.75">回收站</a>
+  </div>
+  <h1 class="th-title">${t.title}</h1>
+  <div class="th-sub">查看 ${t.views}　|　回复 ${t.replies}　|　发帖 ${t.time}</div>
+  ${all.map((u,i)=>postHTML(u,i,i===0)).join('')}
+  <div class="tailnav">
+    <a href="#/">← 返回列表</a>
+    <a href="#/t/${id===5?1:id+1}">下一篇 →</a>
+  </div>`);
+  document.title = (id===5 ? '别看了' : t.title) + ' · 夜航船';
+}
+
+function render404(){
+  document.getElementById('app').innerHTML = shell(`
+  <div style="padding:50px 0;text-align:center">
+    <h1 class="th-title" style="font-size:19px">该帖已被删除</h1>
+    <p style="color:#9b8f80;font-size:13.5px;margin-top:18px">
+      指定的主题不存在或已被删除。<br>删除理由：<b class="hl">楼主申请</b>。</p>
+    <div class="tailnav"><a href="#/">← 返回版面</a></div>
+  </div>`);
+}
+
+function render13(){
+  document.body.innerHTML = `<div class="dark-page">
+    <figure><div class="fig-in">${FIG.door}</div>
+    <figcaption>IMG_0431.jpg　门缝下面</figcaption></figure>
+    <p>你上来了。</p>
+    <p style="font-size:12px;color:#4a4335">这里没有十三楼。</p>
+  </div>`;
+  document.body.style.background = '#0b0b0c';
+}
+
+/* ============================================================
+   线索板 2.0 - 完美修复版
+   ============================================================ */
+
+const CARDS = {
+  A:{x:2,  y:4,  w:15.5, h:19, t:'paper', n:'01 十三楼的水声', d:'2011-06-30 23:47<br>南风 · 回复 11',
+     q:'“我住 11 楼，最里面那户，1101。”'},
+  B:{x:2,  y:25, w:15.5, h:19, t:'paper', n:'02 末班车', d:'2012-02-29 02:11<br>夜班老周 · 回复 9',
+     q:'“袋子里有一张复写的纸。”'},
+  C:{x:2,  y:46, w:15.5, h:19, t:'paper', n:'03 敲门', d:'2012-05-31 01:38<br>三楼西户 · 回复 8',
+     q:'“他一直没抬头。”'},
+  D:{x:2,  y:67, w:15.5, h:19, t:'paper', n:'04 洗衣机', d:'2012-10-31 03:02<br>晚归的猫 · 回复 6',
+     q:'“桶上写着 37 号。”'},
+  E:{x:36, y:4,  w:15.5, h:19, t:'paper', n:'05 水表', d:'2013-01-08 23:56<br>夏至 · 回复 5',
+     q:'“去年四月搬来的。”'},
+
+  H:{x:20, y:7,  w:13,   h:15, t:'stub',  n:'抄表存根', d:'建设路 37 号 1101<br>9 月 30 日 · 李'},
+  I:{x:20, y:25, w:11.5, h:16, t:'photo', n:'猫眼照片', cap:'2012-05-31 01:11'},
+
+  F:{x:36, y:25, w:14.5, h:19, t:'bill', n:'水费通知单', d:'夏至 · 1101'},
+  G:{x:56, y:4,  w:25,   h:26, t:'duty', n:'值班表', d:'2011.03 — 2013.06'},
+  K:{x:56, y:34, w:12,   h:15, t:'photo', n:'B 区洗衣房', cap:'2012-10-31 02:58'}
+};
+
+/* 完美的线性串联链条 */
+const CHAIN = ['A', 'H', 'B', 'G', 'C', 'I', 'D', 'K', 'E', 'F'];
+const PAIRS = [
+  {a:'A', b:'H', t:'「11 楼最里面那户」就是 1101。南风在水里泡烂的抄表卡，背面是复写纸的蓝色，留下一排小孔。', k:'1101 · 2011.09.30'},
+  {a:'H', b:'B', t:'老周在末班车上捡到的复写纸，和门缝水里泡烂的卡片，是同一本。他看到了地址：建设路 37 号 1101。', k:'同一本抄表簿'},
+  {a:'B', b:'G', t:'存根末尾那个「李」字，和值班表上被荧光笔涂掉的名字，是同一个工号 HX-0417。', k:'HX-0417'},
+  {a:'G', b:'C', t:'工号 HX-0417 的夜班人员，正是老太太在猫眼里看到的穿蓝工装、拿本子的人。', k:'蓝工装 · 反光条'},
+  {a:'C', b:'I', t:'老太太猫眼拍下的照片：蓝工装，肩上一条黄色反光条，低头，手里有本子在写。', k:'猫眼照片'},
+  {a:'I', b:'D', t:'反光条的位置一样。洗衣房滚筒里那件，就是他身上那件。', k:'同一个人'},
+  {a:'D', b:'K', t:'洗衣房照片里，桶上写着「37 号」。', k:'37 号'},
+  {a:'K', b:'E', t:'「37 号」不是小区编号，是建设路 37 号。夏至正是这里的住户。', k:'建设路 37 号'},
+  {a:'E', b:'F', t:'夏至的水费单显示，她一个人住，水表却在半夜走字，呼应了南风的水声。', k:'户名夏至'}
+];
+
+const SOLVE_TL = [
+  ['2011.06','南风开始听见楼上的水声。她记下日期：六月三十、七月三十一、八月三十一。<b>都是月末。</b>'],
+  ['2011.09.30','有人用设备层的钥匙，进了 1101 正上方那间封存的空房。那天是抄表日。'],
+  ['2011.10.02','南风最后一次登录。她没有报过警，只在帖子里说「我不太敢再上去了」。'],
+  ['2012.02.29','老周在末班车上捡到一张抄表存根，上面是 1101。他把它夹进行车记录本，没有交给任何人。'],
+  ['2012.03.04','老周发了一条「删了」，三天后停止登录。'],
+  ['2012.05.31','三号楼的老太太从猫眼里看见了他。<b>她没开门。</b>——五个人里，只有她没开门，也只有她活了下来。'],
+  ['2012.10.31','B 区地下洗衣房。水是热的，滚筒里一件蓝工装，水里的桶写着「37 号」。'],
+  ['2013.01.08','夏至搬进 1101 的第九个月。凌晨一点十分，她的水表开始走字。'],
+  ['2013.01.09','她发帖说「我不会删。我要留着。」当天夜里，最后一次登录。'],
+  ['2013.06','泵站封了。值班表上只剩一个工号。没有人问过他是谁。'],
+  ['2026.10','我搬进了 1101。房租比周围便宜一半。房东说上一户走得急，空了半年。']
+];
+
+let solved = {}, tempPath = null, dragFrom = null, okCount = 0;
+let hintStage = 0;
+
+function boardHTML(){
+  const cardHTML = Object.entries(CARDS).filter(([,c])=>c).map(([id,c])=>`
+    <div class="card" data-id="${id}" style="left:${c.x}%;top:${c.y}%;width:${c.w}%;height:${c.h}%">
+      <div class="cbox">${cardInner(id,c)}</div>
+      <div class="pin" data-id="${id}"></div>
+    </div>`).join('');
+
+  return `
+  <div class="board-page">
+    <div class="bp-head">
+      <a href="#/" class="bk">← 返回版面</a>
+      <span class="ti">水线（整理中）</span>
+      <span class="sub">2019-11-30 23:41 · 雨停之前 · 最后一次编辑</span>
+    </div>
+    <div class="bsub">
+      版主回收站 · 仅版主可见。共 <b>1</b> 个主题。<br>
+      <b>操作说明</b>：将线索按因果关系串联。点一下任意一张纸（它会亮起来），再点另一张，两条线索就接上了。<br>
+      <b>规则</b>：必须按“前因 -> 后果”的方向点击。每张卡片最多只能连接一次。
+    </div>
+
+    <div class="board-hint">← 左右滑动看整块板　·　先点一张纸，再点另一张，就能连线 →</div>
+    <div class="board-scroll">
+      <div class="board" id="board">
+        <div class="mapbg">${MAPBG}</div>
+        <svg id="boardSvg" xmlns="http://www.w3.org/2000/svg"></svg>
+        ${cardHTML}
+        <div class="guide2" style="left:73%;top:34%">五个人，五个日期。<br>看「最后登录」。</div>
+        <div class="guide" style="left:56%;top:56%;width:40%">他在两个片区之间来回。需要一个能装水的容器。</div>
+        <div class="guide" style="left:73%;top:74%;width:24%">先把 1101 连起来。<br>这间房是入口。</div>
+      </div>
+    </div>
+
+    <div class="notes">
+      <h3>推理记录</h3>
+      <div class="nlist" id="nlist"></div>
+    </div>
+
+    <div class="board-ctl">
+      <div class="pbar"><i id="pbar"></i></div>
+      <div class="pnum" id="pnum">0 / 9</div>
+      <button class="solvebtn" id="solve">还 原 案 件</button>
+      <button class="hintbtn" id="hintb">卡 住 了 ？</button>
+      <button class="resetbtn" onclick="location.reload()">重 置 线 索 板</button>
+      <div class="hintmsg" id="hintmsg"></div>
+      <div class="hint">连错的线会自己掉下来。因果顺序反了会有提示。</div>
+    </div>
+
+    <div style="max-width:1180px;margin:44px auto 0">
+      <a href="#/" style="color:#6b6050;font-size:11px;letter-spacing:.15em;font-family:var(--mono)">← 返回版面</a>
+    </div>
+  </div>`;
+}
+
+function cardInner(id, c){
+  if(c.t==='paper') return `<div class="papercard" style="height:100%">
+    <div class="ct">THREAD ${c.n.slice(0,2)}</div>
+    <div class="cn">${c.n.slice(3)}</div>
+    <div class="cd">${c.d}</div>
+    <div class="cq">${c.q}</div></div>`;
+  if(c.t==='stub') return `<div class="stub" style="height:100%"><div class="hole"></div>
+    <div class="sc"><b>抄表存根</b><br>建设路 37 号<br><b>1101</b><br>2011.09.30<br>用量 6.2 吨<br>抄表 ______</div></div>`;
+  if(c.t==='photo'){
+    const svg = id==='I' ? FIG.peek : (id==='J' ? FIG.meter : FIG.wash);
+    return `<div class="photocard" style="height:100%"><div class="ph">${svg}</div>
+      <div class="cap">${c.cap}</div></div>`;
+  }
+  if(c.t==='bill') return `<div class="billcard" style="height:100%">
+    <div class="bh">水费通知单</div>
+    户名　夏至<br>地址　建设路 37 号 1101<br>
+    本期　<span class="big">87.40</span> 元<br>上期　56.20 元<br>
+    抄表周期　月末</div>`;
+  if(c.t==='duty') return `<div class="dutycard" style="height:100%">
+    <div class="dh">DUTY / 夜班 / 江北营业所</div>
+    <div class="dr"><span>2011.03</span><span class="hl2">HX-0417</span></div>
+    <div class="dr"><span>2011.06</span><span class="hl2">HX-0417</span></div>
+    <div class="dr"><span>2011.09</span><span class="hl2">HX-0417</span></div>
+    <div class="dr"><span>2012.02</span><span class="hl2">HX-0417</span></div>
+    <div class="dr"><span>2012.05</span><span class="hl2">HX-0417</span></div>
+    <div class="dr"><span>2012.10</span><span class="hl2">HX-0417</span></div>
+    <div class="dr"><span>2013.01</span><span class="hl2">HX-0417</span></div>
+    <div class="dr"><span>2013.06</span><span class="hl2">HX-0417</span></div>
+    <div style="margin-top:4px;font-size:5.5px;color:#6b6050">姓名栏被荧光笔涂过，对着灯能看见一个「李」。</div></div>`;
+  return '';
+}
+
+const MAPBG = `<svg viewBox="0 0 1600 1000" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1600" height="1000" fill="#4a3f33"/>
+  <g stroke="#6a5a45" stroke-width="26" opacity=".55">
+    <line x1="0" y1="330" x2="1600" y2="310"/>
+    <line x1="0" y1="720" x2="1600" y2="740"/>
+    <line x1="420" y1="0" x2="400" y2="1000"/>
+    <line x1="1120" y1="0" x2="1140" y2="1000"/>
+  </g>
+  <g fill="#8b7a5e" font-family="monospace" font-size="15" opacity=".55">
+    <text x="120" y="322">建设路</text><text x="1300" y="322">建设路</text>
+    <text x="120" y="756">后街</text><text x="1300" y="756">后街</text>
+  </g>
+  <g fill="none" stroke="#6a5a45" stroke-width="9" opacity=".5">
+    <circle cx="900" cy="540" r="70"/>
+  </g>
+  <text x="840" y="545" fill="#8b7a5e" font-size="13" font-family="monospace" opacity=".5">幸福里</text>
+  <text x="230" y="250" fill="#8b7a5e" font-size="13" font-family="monospace" opacity=".5">纺织厂家属楼</text>
+  <text x="1180" y="640" fill="#8b7a5e" font-size="13" font-family="monospace" opacity=".5">泵站（废）</text>
+</svg>`;
+
+function centerOf(id){
+  const board = document.getElementById('board');
+  const el = board.querySelector(`.card[data-id="${id}"] .pin`);
+  const b = board.getBoundingClientRect();
+  const r = el.getBoundingClientRect();
+  return [r.left - b.left + r.width/2, r.top - b.top + r.height/2];
+}
+
+function setD(pathEl, A, B){
+  const mx = (A[0]+B[0])/2 + (B[0]-A[0])*0.04;
+  const my = (A[1]+B[1])/2 + Math.abs(B[0]-A[0])*0.05 + 18;
+  pathEl.setAttribute('d', `M${A[0]} ${A[1]} Q${mx} ${my} ${B[0]} ${B[1]}`);
+}
+
+// 记录每张卡片的连接次数
+let curDeg = {};
+// 每张卡片允许的最大连接次数（A和F两端为1，其余为2）
+const MAX_DEG = { A:1, F:1, H:2, B:2, G:2, C:2, I:2, D:2, K:2, E:2 };
+
+function initBoard(){
+  const board = document.getElementById('board');
+  const svg = document.getElementById('boardSvg');
+  svg.setAttribute('viewBox', `0 0 ${board.clientWidth} ${board.clientHeight}`);
+
+  solved = {}; okCount = 0; dragFrom = null; tempPath = null;
+  curDeg = {};
+  Object.keys(CARDS).forEach(k => curDeg[k] = 0);
+  
+  document.getElementById('nlist').innerHTML = '';
+  document.getElementById('pbar').style.width = '0';
+  document.getElementById('pnum').textContent = `0 / ${PAIRS.length}`;
+  document.getElementById('solve').classList.remove('on');
+
+  hintStage = 0;
+  const hb = document.getElementById('hintb');
+  const hm = document.getElementById('hintmsg');
+  if(hm) hm.innerHTML = '';
+  if(hb) hb.onclick = ()=>{
+    const rest = PAIRS.filter(p=>!solved[keyOf(p.a,p.b)]);
+    if(!rest.length){ hm.innerHTML = '所有线索都连上了。按「还原案件」。'; return; }
+    hintStage++;
+    if(hintStage % 2 === 1){
+      hm.innerHTML = `还差 <b>${rest.length}</b> 条线。试着根据时间线，先点前因，再点后果。`;
+    }else{
+      const p = rest[0];
+      hm.innerHTML = `试着从 <b>${CARDS[p.a].n}</b> 指向 <b>${CARDS[p.b].n}</b>。`;
+    }
+  };
+
+  let pickA = null;
+  let pressCard = null, pressX = 0, pressY = 0, pressMoved = false;
+  const clearPick = ()=>{
+    if(!pickA) return;
+    const el = document.querySelector(`.card[data-id="${pickA}"]`);
+    if(el) el.classList.remove('picked');
+    pickA = null;
+  };
+  function pick(id){
+    if(pickA === id){ clearPick(); return; }
+    if(!pickA){
+      pickA = id;
+      const el = document.querySelector(`.card[data-id="${id}"]`);
+      if(el) el.classList.add('picked');
+      return;
+    }
+    tryLink(pickA, id);
+    clearPick();
+  }
+
+  board.addEventListener('pointerdown', e=>{
+    const card = e.target.closest('.card');
+    const pin = e.target.closest('.pin');
+    pressCard = card ? card.dataset.id : null;
+    pressX = e.clientX; pressY = e.clientY; pressMoved = false;
+    dragFrom = (pin && card) ? card.dataset.id : null;
+    if(!card && pickA) clearPick();
+    if(dragFrom){
+      tempPath = document.createElementNS('http://www.w3.org/2000/svg','path');
+      tempPath.setAttribute('class','dash');
+      svg.appendChild(tempPath);
+      const A = centerOf(dragFrom);
+      tempPath.setAttribute('d', `M${A[0]} ${A[1]} L${A[0]} ${A[1]}`);
+      document.body.style.touchAction = 'none';
+      e.preventDefault();
+    }
+  });
+
+  function unlockTouch(){ document.body.style.touchAction = ''; }
+
+  if(window.__bm) window.removeEventListener('pointermove', window.__bm);
+  if(window.__bu) window.removeEventListener('pointerup', window.__bu);
+  if(window.__bc) window.removeEventListener('pointercancel', window.__bc);
+  if(window.__br) window.removeEventListener('resize', window.__br);
+  window.__bm = onMove; window.__bu = onUp; window.__bc = onCancel; window.__br = reflow;
+  window.addEventListener('pointermove', onMove);
+  window.addEventListener('pointerup', onUp);
+  window.addEventListener('pointercancel', onCancel);
+  window.addEventListener('resize', reflow);
+
+  function onCancel(){
+    unlockTouch();
+    if(tempPath){ tempPath.remove(); tempPath = null; }
+    dragFrom = null;
+  }
+
+  function reflow(){
+    svg.setAttribute('viewBox', `0 0 ${board.clientWidth} ${board.clientHeight}`);
+    svg.querySelectorAll('path.ok').forEach(p=>{
+      const l = p.dataset.link;
+      if(!l) return;
+      const [a,b] = l.split('|');
+      if(CARDS[a] && CARDS[b]) setD(p, centerOf(a), centerOf(b));
+    });
+  }
+
+  function onMove(e){
+    if(!pressCard) return;
+    if(!pressMoved && Math.hypot(e.clientX-pressX, e.clientY-pressY) > 8) pressMoved = true;
+    if(dragFrom && tempPath && pressMoved){
+      const b = board.getBoundingClientRect();
+      const A = centerOf(dragFrom);
+      const x = e.clientX - b.left, y = e.clientY - b.top;
+      tempPath.setAttribute('d', `M${A[0]} ${A[1]} L${x} ${y}`);
+    }
+  }
+
+  function onUp(e){
+    unlockTouch();
+    if(!pressCard) return;
+    const el = document.elementFromPoint(e.clientX, e.clientY);
+    const target = el && el.closest ? el.closest('.card') : null;
+    const to = target ? target.dataset.id : null;
+
+    if(dragFrom && tempPath){
+      tempPath.remove(); tempPath = null;
+      const from = dragFrom; dragFrom = null;
+      if(to && to !== from) tryLink(from, to);
+      return;
+    }
+
+    if(pressMoved){
+      pressCard = null;
+      return;
+    }
+
+    if(!to) return;
+    pick(to);
+    pressCard = null;
+  }
+}
+
+function keyOf(a,b){ return [a,b].sort().join('|'); }
+
+function tryLink(c1, c2){
+  if(c1 === c2) return;
+  const k = keyOf(c1,c2);
+  if(solved[k]) return;
+
+  // 1. 检查连接次数是否已满
+  if(curDeg[c1] >= MAX_DEG[c1]) {
+    addNote('—', `【${CARDS[c1].n}】的线索两端都已经连满了。`, true);
+    return;
+  }
+  if(curDeg[c2] >= MAX_DEG[c2]) {
+    addNote('—', `【${CARDS[c2].n}】的线索两端都已经连满了。`, true);
+    return;
+  }
+
+  // 2. 检查因果关系（必须按 a -> b 的方向）
+  const pair = PAIRS.find(p => p.a === c1 && p.b === c2);
+  if(!pair) {
+    const reverse = PAIRS.find(p => p.a === c2 && p.b === c1);
+    if(reverse) {
+      addNote('—', `因果反了。应该先点【${CARDS[c2].n}】，再点【${CARDS[c1].n}】。`, true);
+    } else {
+      // 无关卡片，画个错误线
+      const A = centerOf(c1), B = centerOf(c2);
+      const p = document.createElementNS('http://www.w3.org/2000/svg','path');
+      p.setAttribute('class','bad');
+      setD(p, A, B);
+      document.getElementById('boardSvg').appendChild(p);
+      setTimeout(()=>p.remove(), 620);
+      addNote('—', '这两张线索之间没有直接关联。', true);
+    }
+    return;
+  }
+
+  // 3. 连线成功
+  solved[k] = true;
+  curDeg[c1]++;
+  curDeg[c2]++;
+  okCount++;
+
+  const A = centerOf(c1), B = centerOf(c2);
+  const p = document.createElementNS('http://www.w3.org/2000/svg','path');
+  p.setAttribute('class','ok');
+  p.dataset.link = c1+'|'+c2;
+  setD(p, A, B);
+  document.getElementById('boardSvg').appendChild(p);
+
+  const len = p.getTotalLength();
+  p.setAttribute('stroke-dasharray', len+' '+len);
+  p.setAttribute('stroke-dashoffset', len);
+  frameAnim(q=>{
+    const e = 1 - Math.pow(1 - q, 2);
+    p.setAttribute('stroke-dashoffset', len * (1 - e));
+  }, 40);
+
+  document.querySelector(`.card[data-id="${c1}"]`).classList.add('linked');
+  document.querySelector(`.card[data-id="${c2}"]`).classList.add('linked');
+  
+  [c1,c2].forEach(id=>{
+    const c = document.querySelector(`.card[data-id="${id}"]`);
+    c.classList.add('ok-flash');
+    setTimeout(()=>c.classList.remove('ok-flash'), 720);
+  });
+
+  addNote(pair.k, pair.t);
+  document.getElementById('pbar').style.width = (okCount/PAIRS.length*100)+'%';
+  document.getElementById('pnum').textContent = okCount+' / '+PAIRS.length;
+  if(okCount === PAIRS.length){
+    setTimeout(()=>{ document.getElementById('solve').classList.add('on'); }, 700);
+  }
+}
+
+function addNote(k, text, wrong){
+  const list = document.getElementById('nlist');
+  const d = document.createElement('div');
+  d.className = 'nitem' + (wrong ? ' wrong' : '');
+  d.innerHTML = `<i>${wrong ? '×' : '✓'}</i><div>${wrong ? text : `<b style="color:#d9cbb0;font-weight:400">${k}</b>　${text}`}</div>`;
+  list.appendChild(d);
+  if(wrong) setTimeout(()=>d.remove(), 3200);
+}
+
+function frameAnim(apply, durFrames){
+  let f = 0;
+  (function step(){
+    f++;
+    const q = Math.min(1, f / durFrames);
+    apply(q);
+    if(q < 1) setTimeout(step, 16);
+  })();
+}
+
+function revealCase(){
+  const rows = SOLVE_TL.map((r,i)=>
+    `<div class="rvl"><span class="d">${r[0]}</span><span class="t">${r[1]}</span></div>`
+  ).join('');
+  const d = document.createElement('div');
+  d.className = 'reveal';
+  d.innerHTML = `<div class="rv-in">
+    <h2>水　线</h2>
+    ${rows}
+    <div class="rv-end">
+      <p>五个人。同一间房，同一双手，同一个月的最后一天。</p>
+      <p>水费单上的户名，还是她。</p>
+      <p style="margin-top:34px">今天是这个月的最后一天。</p>
+      <p>凌晨一点十分，我的水表开始走字。</p>
+      <div class="m">— 完 —</div>
+      <a href="#/" class="rv-back" onclick="setTimeout(()=>location.reload(),50)">← 返回版面</a>
+    </div>
+  </div>`;
+  document.body.appendChild(d);
+  document.body.style.overflow = 'hidden';
+
+  const items = d.querySelectorAll('.rvl, .rv-end');
+  items.forEach((el,i)=>{
+    setTimeout(()=>frameAnim(q=>{ el.style.opacity = q; }, 54), 320 + i*430);
+  });
+}
+
+/* ================= 路由 ================= */
+function route(){
+  document.body.style.background = '';
+  document.body.style.overflow = '';
+  document.querySelectorAll('.reveal').forEach(n=>n.remove());
+
+  const q = new URLSearchParams(location.search);
+  if(q.get('p') === '13'){ render13(); return; }
+
+  let h = location.hash;
+  if(h === '#' || h === '#/') h = '';
+
+  if(h.startsWith('#/t/')){
+    const id = parseInt(h.slice(4),10);
+    if(!THREADS.some(t=>t.id===id)) render404();
+    else renderThread(id);
+  }else if(h === '#/archive'){
+    document.body.style.background = '#1b1815';
+    document.getElementById('app').innerHTML = boardHTML();
+    document.title = '回收站 · 夜航船';
+    setTimeout(()=>{
+      initBoard();
+      document.getElementById('solve').onclick = revealCase;
+    }, 40);
+  }else{
+    renderIndex();
+  }
+  window.scrollTo(0,0);
+}
+
+window.addEventListener('hashchange', route);
+route();
+
+console.log('%c夜航船 · 江北区专版', 'font-size:16px;color:#a83c30');
+console.log('%c你找到我了。他也在找你。', 'font-size:13px;color:#5f5648');
+</script>
+</body>
+</html>
